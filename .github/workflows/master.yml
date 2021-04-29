@@ -16,6 +16,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
+      working-directory: ./ActionApp
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
