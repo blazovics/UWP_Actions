@@ -12,6 +12,7 @@ namespace ActionApp
             return str.Length;
         }
 
+        //
         public int WhitespaceCharacters(string str)
         {
             return str.Count(Char.IsWhiteSpace);
