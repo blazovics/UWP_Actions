@@ -15,14 +15,13 @@ jobs:
             dotnet-version: '3.1.x'
        - name: Install dependencies
          working-directory: ./ActionApp
-         run: | 
-          ls -l
-          dotnet restore
+         run: dotnet restore
        - name: Build
          working-directory: ./ActionApp
-         run: | 
-          ls -l
-          dotnet build --configuration Release --no-restore
+         run: dotnet build --configuration Release --no-restore
        - name: Test
          working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
+       - name: Test failed
+         if: ${{ failure() }}
+         run: echo 'Failed'
