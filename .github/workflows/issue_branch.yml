@@ -2,9 +2,7 @@
 
 name: Issue Branch
 
-on:
-    issues:
-        types: [created]
+on: [issues]
 
 jobs:
     create_issue_branch_job:
