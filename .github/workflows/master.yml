@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
        - uses: actions/checkout@v2
        - name: Setup dotnet
@@ -24,4 +26,5 @@ jobs:
          run: dotnet test --no-restore --verbosity normal
        - name: Test failed
          if: ${{ failure() }}
-         run: echo 'Failed'
+         uses: JasonEtco/create-an-issue@v2
+            
