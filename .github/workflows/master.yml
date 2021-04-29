@@ -19,6 +19,7 @@ jobs:
           ls -l
           dotnet restore
        - name: Build
+         working-directory: ./ActionApp
          run: | 
           ls -l
           dotnet build --configuration Release --no-restore
