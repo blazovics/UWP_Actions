@@ -10,5 +10,7 @@ jobs:
         steps:
         - name: Create Issue Branch
           uses: robvanderleek/create-issue-branch@master
+          with:
+            branchName: tiny
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
