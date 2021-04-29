@@ -27,4 +27,6 @@ jobs:
        - name: Test failed
          if: ${{ failure() }}
          uses: JasonEtco/create-an-issue@v2
+         with:
+           filename: .github/ISSUE_TEMPLATE/bug_report.md
             
