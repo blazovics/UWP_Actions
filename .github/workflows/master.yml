@@ -24,4 +24,5 @@ jobs:
           ls -l
           dotnet build --configuration Release --no-restore
        - name: Test
+         working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
