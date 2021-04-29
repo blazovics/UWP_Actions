@@ -8,17 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1.7.2
-      with:
-        dotnet-version: 3.1.x
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      working-directory: ./ActionApp
-      run: | 
-        ls -l
-        dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+       - uses: actions/checkout@v2
+       - name: Setup dotnet
+         uses: actions/setup-dotnet@v1
+         with:
+            dotnet-version: '3.1.x'
+       - name: Install dependencies
+         run: dotnet restore
+       - name: Build
+         working-directory: ./ActionApp
+         run: | 
+          ls -l
+          dotnet build --configuration Release --no-restore
+       - name: Test
+         run: dotnet test --no-restore --verbosity normal
