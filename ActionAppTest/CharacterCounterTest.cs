@@ -13,5 +13,14 @@ namespace ActionApp.Test
 
             Assert.IsTrue(length == 0);
         }
+
+        [TestMethod]
+        public void WhitespaceCounting()
+        {
+            CharacterCounter cc = new CharacterCounter();
+            int length = cc.WhitespaceCharacters(" ");
+
+            Assert.IsTrue(length == 0);
+        }
     }
 }
