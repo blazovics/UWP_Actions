@@ -7,8 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
        - uses: actions/checkout@v2
        - name: Setup dotnet
@@ -29,4 +27,6 @@ jobs:
          uses: JasonEtco/create-an-issue@v2
          with:
            filename: .github/ISSUE_TEMPLATE/bug_report.md
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
