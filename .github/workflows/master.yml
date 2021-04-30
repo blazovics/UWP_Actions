@@ -29,6 +29,6 @@ jobs:
            filename: .github/ISSUE_TEMPLATE/bug_report.md
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USER: ${{ github.event.schedule.user.login }}
+          USER: ${{ github.actor }}
           BLABLA: blabla
             
