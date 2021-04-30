@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: 'This is a bug on the main'
 labels: 'bug'
-assignees: '{{ env.USER }}'
+assignees: ${{ env.USER }}
 
 ---
 
