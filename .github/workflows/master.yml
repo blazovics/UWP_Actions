@@ -23,9 +23,9 @@ jobs:
          working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
        - name: Publish Unit Test Results
+         working-directory: ./ActionApp
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
-         working-directory: ./ActionApp
          with:
           files: test-results/**/*.xml
        - name: pull-request
