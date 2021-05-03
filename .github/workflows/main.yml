@@ -1,14 +1,39 @@
-name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+name: main build
+
+on: 
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkout@v2
+       - name: Setup dotnet
+         uses: actions/setup-dotnet@v1
+         with:
+            dotnet-version: '3.1.x'
+       - name: Install dependencies
+         working-directory: ./ActionApp
+         run: dotnet restore
+       - name: Build
+         working-directory: ./ActionApp
+         run: dotnet build --configuration Release --no-restore
+       - name: Test
+         working-directory: ./ActionApp
+         run: dotnet test --no-restore --verbosity normal
+       - name: Create Release
+         id: create_release
+         uses: actions/create-release@v1
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+         with:
+           tag_name: ${{ github.ref }}
+           release_name: Release ${{ github.ref }}
+           body: |
+            New Release
+           draft: false
+           prerelease: false
