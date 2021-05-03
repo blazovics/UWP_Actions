@@ -31,4 +31,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USER: ${{ github.actor }}
           BLABLA: blabla
+       - name: pull-request
+         uses: repo-sync/pull-request@v2
+         with:
+          destination_branch: "main"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
             
