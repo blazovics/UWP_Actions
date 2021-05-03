@@ -23,12 +23,12 @@ jobs:
          working-directory: ./ActionApp
          run: |
            dotnet test --no-restore --verbosity normal --logger trx --results-directory "TestResults"
-           ls
+           ls TestResults/
        - name: Publish Unit Test Results
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
          with:
-          files: ./ActionsApp/TestResults/**/*.xml
+          files: ./ActionsApp/TestResults/*.xml
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
