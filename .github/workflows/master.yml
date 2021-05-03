@@ -30,7 +30,7 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USER: ${{ github.actor }}
-          BLABLA: blabla
+          BLABLA: blablabla
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
