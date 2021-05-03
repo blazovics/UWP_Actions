@@ -25,6 +25,7 @@ jobs:
        - name: Publish Unit Test Results
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
+         working-directory: ./ActionApp
          with:
           files: test-results/**/*.xml
        - name: pull-request
