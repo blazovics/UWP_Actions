@@ -21,12 +21,14 @@ jobs:
          run: dotnet build --configuration Release --no-restore
        - name: Test
          working-directory: ./ActionApp
-         run: dotnet test --no-restore --verbosity normal
+         run: |
+           dotnet test --no-restore --verbosity normal
+           ls
        - name: Publish Unit Test Results
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
          with:
-          files: ActionsApp/test-results/**/*.xml
+          files: ./ActionsApp/*.xml
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
