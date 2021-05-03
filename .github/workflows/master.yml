@@ -22,15 +22,6 @@ jobs:
        - name: Test
          working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
-       - name: Test failed
-         if: ${{ failure() }}
-         uses: JasonEtco/create-an-issue@v2
-         with:
-           filename: .github/ISSUE_TEMPLATE/bug_report.md
-         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USER: ${{ github.actor }}
-          BLABLA: blabla
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
