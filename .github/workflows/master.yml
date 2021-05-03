@@ -23,11 +23,10 @@ jobs:
          working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
        - name: Publish Unit Test Results
-         working-directory: ./ActionApp
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
          with:
-          files: test-results/**/*.xml
+          files: ActionsApp/test-results/**/*.xml
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
