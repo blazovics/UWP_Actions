@@ -20,7 +20,7 @@ namespace ActionApp.Test
             CharacterCounter cc = new CharacterCounter();
             int length = cc.WhitespaceCharacters(" ");
 
-            Assert.IsTrue(length == 0);
+            Assert.IsTrue(length == 1);
         }
     }
 }
