@@ -30,7 +30,7 @@ jobs:
          uses: EnricoMi/publish-unit-test-result-action@v1
          if: always()
          with:
-          files: ./ActionsApp/TestResults/*.trx
+          files: ./ActionApp/TestResults/*.trx
        - name: pull-request
          uses: repo-sync/pull-request@v2
          with:
