@@ -26,7 +26,7 @@ jobs:
          working-directory: ./ActionApp
          run: dotnet test --no-restore --verbosity normal
        - name: Create Release
-       - uses: ncipollo/release-action@v1
+         uses: ncipollo/release-action@v1
          with:
           artifacts: ".ActionApp/bin/Release/**/*.exe"
           body: New Release
