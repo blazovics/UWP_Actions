@@ -21,6 +21,7 @@ namespace ActionApp.Test
             int length = cc.WhitespaceCharacters(" ");
 
             Assert.IsTrue(length == 1);
+
         }
     }
 }
